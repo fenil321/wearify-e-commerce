@@ -10,6 +10,7 @@ import authMiddleware from "../middleware/authMiddleware.js";
 const router = express.Router();
 const jwt_key = process.env.JWT_SECRET;
 const jwt_key_refresh = process.env.REFRESH_SECRET;
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 //Register
 router.post("/register", async (req, res) => {
   try {
@@ -138,10 +139,12 @@ router.post("/login", async (req, res) => {
       expiresIn: "7d",
     });
 
+    const isProd = process.env.NODE_ENV === "production";
+
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // true in production (HTTPS)
-      sameSite: "strict",
+      secure: isProd, // true in production (HTTPS)
+      sameSite: isProd ? "none" : "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
@@ -210,7 +213,7 @@ router.post("/forgot-password", async (req, res) => {
 
     await user.save();
 
-    const resetUrl = `http://localhost:5173/reset-password/${resetToken}`;
+    const resetUrl = `${FRONTEND_URL}/reset-password/${resetToken}`;
 
     //console.log("Reset URL:", resetUrl);
 
@@ -293,7 +296,7 @@ router.put("/reset-password/:token", async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    user.password = hashedPassword; 
+    user.password = hashedPassword;
     user.resetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
 

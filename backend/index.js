@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 8000;
 
 app.use(
   cors({
-    origin: "http://localhost:5173", //for fontend URL
+    origin: ["http://localhost:5173", "https://wearify-ten.vercel.app"], //"http://localhost:5173", //for fontend URL
     credentials: true,
   }),
 );
