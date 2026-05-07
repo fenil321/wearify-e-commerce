@@ -1,0 +1,17 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="octagon">
+      <polygon points="100,5 167,33 195,100 167,167 100,195 33,167 5,100 33,33" />
+    </clipPath>
+  </defs>
+  
+  {/* Grey Borders */}
+  <polygon points="100,2 169,31 198,100 169,169 100,198 31,169 2,100 31,31" fill="none" stroke="#808080" stroke-width="4" />
+  <polygon points="100,2 169,31 198,100 169,169 100,198 31,169 2,100 31,31" fill="none" stroke="#808080" stroke-width="4" transform="rotate(22.5 100 100)" />
+  
+  {/* Black Octagon */}
+  <polygon points="100,5 167,33 195,100 167,167 100,195 33,167 5,100 33,33" fill="black" transform="rotate(22.5 100 100)" />
+  
+  {/* The 'W' */}
+  <text x="99" y="140" font-family="Serif, Times New Roman" font-size="110" font-weight="bold" fill="white" text-anchor="middle">W</text>
+</svg>

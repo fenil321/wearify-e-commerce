@@ -215,7 +215,7 @@ router.post("/forgot-password", async (req, res) => {
 
     const resetUrl = `${FRONTEND_URL}/reset-password/${resetToken}`;
 
-    //console.log("Reset URL:", resetUrl);
+    console.log("Reset URL:", resetUrl);
 
     const currentYear = new Date().getFullYear();
 
