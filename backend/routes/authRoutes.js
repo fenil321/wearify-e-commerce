@@ -13,6 +13,7 @@ const jwt_key_refresh = process.env.REFRESH_SECRET;
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 //Register
 router.post("/register", async (req, res) => {
+  console.log("Registration Attempt Body:", req.body);
   try {
     const { name, email, password } = req.body;
     //check is user already exist!
@@ -29,7 +30,7 @@ router.post("/register", async (req, res) => {
     //console.log(salt);
 
     //create User
-    const user = await User.insertOne({
+    const user = await User.create({
       name,
       email,
       password: hashedPassword,
