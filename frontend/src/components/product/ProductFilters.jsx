@@ -11,9 +11,9 @@ const ProductFilters = ({
   setMaxPrice,
 }) => {
   const subCategoryMap = {
-    Men: ["T-Shirt", "Hoodie", "Shirt", "Jeans", "Joggers"],
-    Women: ["T-Shirt", "Kurti", "Frock", "Top", "Jeans", "Leggings"],
-    Kids: ["T-Shirt", "Shorts", "Frock", "Dress", "Pajamas"],
+    Men: ["T-Shirt", "Hoodie", "Shirt", "Jeans"],
+    Women: ["T-Shirt", "Shirt", "Kurti", "Frock", "Top", "Jeans", "Leggings"],
+    Kids: ["T-Shirt", "Shorts", "Dress", "Pajamas"],
     Anime: ["T-Shirt", "Hoodie"],
   };
 
